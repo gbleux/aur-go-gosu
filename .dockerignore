@@ -1,0 +1,20 @@
+# auxiliary project files
+.gitignore
+CHANGELOG.md
+README.md
+LICENSE
+
+# AUR metadata
+.AURINFO
+.SRCINFO
+
+# PKGBUILD sources
+gosu-*
+
+# makepkg chroots
+pkg/
+src/
+
+# makepkg artifacts
+*.pkg.tar.xz
+*.src.tar.gz

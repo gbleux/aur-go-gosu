@@ -10,7 +10,6 @@ license=('GPL3')
 makedepends=()
 checkdepends=()
 provides=('go-gosu')
-conflicts=('go-gosu')
 
 if [ "$CARCH" == "x86_64" ]; then
     _pkgartifact=gosu-amd64

@@ -5,23 +5,29 @@ pkgrel=1
 pkgdesc="Simple Go-based setuid+setgid+setgroups+exec"
 arch=('i686' 'x86_64')
 url="https://github.com/tianon/gosu"
-_disturl="https://github.com/tianon/gosu/releases/download"
 license=('GPL3')
 makedepends=()
 checkdepends=()
 provides=('go-gosu')
-noextract=('gosu-amd64' 'gosu-i386')
 
 if [ "$CARCH" == "x86_64" ]; then
-    _pkgartifact=gosu-amd64
-    sha256sums=('b72f033f33606ca7ef061510c42c9b922ffd5ee31796bd965185207be3aa01d7')
+    _pkgartifact=gosu-amd64    
 else
     _pkgartifact=gosu-i386
-    sha256sums=('787bc35fbe7f0a09813e1b9bb29f5e2a2c4e8da996002bce65137e1bb5f6b9d9')
 fi
 
-source=("${_disturl}/${pkgver}/${_pkgartifact}")
-validpgpkeys=('4096RB42F6819007F00F88E364FD4036A9C25BF357DD4')
+noextract_i686=("${_pkgartifact}")
+noextract_x86_64=("${_pkgartifact}")
+source_i686=("https://github.com/tianon/gosu/releases/download/${pkgver}/${_pkgartifact}")
+source_x86_64=("https://github.com/tianon/gosu/releases/download/${pkgver}/${_pkgartifact}")
+sha256sums_i686=('787bc35fbe7f0a09813e1b9bb29f5e2a2c4e8da996002bce65137e1bb5f6b9d9')
+sha256sums_x86_64=('b72f033f33606ca7ef061510c42c9b922ffd5ee31796bd965185207be3aa01d7')
+
+#source_i686=("https://github.com/tianon/gosu/releases/download/${pkgver}/${_pkgartifact}"{,.asc})
+#source_x86_64=("https://github.com/tianon/gosu/releases/download/${pkgver}/${_pkgartifact}"{,.asc})
+#sha256sums_i686=('787bc35fbe7f0a09813e1b9bb29f5e2a2c4e8da996002bce65137e1bb5f6b9d9' 'SKIP')
+#sha256sums_x86_64=('b72f033f33606ca7ef061510c42c9b922ffd5ee31796bd965185207be3aa01d7' 'SKIP')
+#validpgpkeys=('4096RB42F6819007F00F88E364FD4036A9C25BF357DD4')
 
 package() {
     # install as root with setuid bit set

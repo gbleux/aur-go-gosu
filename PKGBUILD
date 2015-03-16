@@ -31,5 +31,5 @@ sha256sums_x86_64=('b72f033f33606ca7ef061510c42c9b922ffd5ee31796bd965185207be3aa
 
 package() {
     # install as root with setuid bit set
-    install -D -o 0 -g 0 -m 4755 "${_pkgartifact}" "${pkgdir}/usr/bin/gosu"
+    install -Dm4755 "${_pkgartifact}" "${pkgdir}/usr/bin/gosu"
 }

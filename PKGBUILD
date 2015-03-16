@@ -10,14 +10,13 @@ license=('GPL3')
 makedepends=()
 checkdepends=()
 provides=('go-gosu')
+noextract=('gosu-amd64' 'gosu-i386')
 
 if [ "$CARCH" == "x86_64" ]; then
     _pkgartifact=gosu-amd64
-    noextract=("${_pkgartifact}")
     sha256sums=('b72f033f33606ca7ef061510c42c9b922ffd5ee31796bd965185207be3aa01d7')
 else
     _pkgartifact=gosu-i386
-    noextract=("${_pkgartifact}")
     sha256sums=('787bc35fbe7f0a09813e1b9bb29f5e2a2c4e8da996002bce65137e1bb5f6b9d9')
 fi
 

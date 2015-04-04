@@ -16,7 +16,7 @@ USER worker
 RUN makepkg -sfc --noconfirm --needed
 
 USER root
-ENV AUR_GOSU_VERSION=1.2-1
+ENV AUR_GOSU_VERSION=1.3-1
 RUN pacman \
         --noprogressbar \
         --noconfirm \

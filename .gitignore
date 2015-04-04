@@ -4,6 +4,7 @@
 
 # PKGBUILD sources
 gosu-*
+gosu
 
 # makepkg chroots
 pkg/

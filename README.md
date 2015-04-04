@@ -21,23 +21,27 @@ although currently not planned.
 The following Dockerfile shows a minimalisic example of the typical usecase
 in which gosu is needed.
 
-> FROM base/devel:minimal
-> 
-> RUN useradd --user-group worker
-> 
-> RUN yaourt -S go-gosu-bin
-> CMD ["gosu", "worker", "whoami"]
+```Dockerfile
+FROM base/devel:minimal
+
+RUN useradd --user-group worker
+
+RUN yaourt -S go-gosu-bin
+CMD ["gosu", "worker", "whoami"]
+```
 
 It is also possible to install the gosu package directly from the upstream
 repository instead of the AUR.
 
-> FROM base/devel:minimal
-> 
-> RUN useradd --user-group worker
-> 
-> USER worker
-> WORKDIR /usr/local/src/gosu
-> ADD https://github.com/gbleux/aur-gosu/archive/master.zip /usr/local/src/gosu/
-> RUN /usr/bin/makepkg -sfc --noconfirm --needed
-> 
-> CMD ["gosu", "worker", "whoami"]
+```Dockerfile
+FROM base/devel:minimal
+
+RUN useradd --user-group worker
+
+USER worker
+WORKDIR /usr/local/src/gosu
+ADD https://github.com/gbleux/aur-gosu/archive/master.zip /usr/local/src/gosu/
+RUN /usr/bin/makepkg -sfc --noconfirm --needed
+
+CMD ["gosu", "worker", "whoami"]
+```

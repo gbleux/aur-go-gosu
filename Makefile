@@ -8,6 +8,7 @@ clean:
 	-$(RM) *.pkg.tar.xz
 	-$(RM) *.src.tar.gz
 	-$(RM) gosu-*
+	-$(RM) gosu
 
 .PHONY: build-local
 build-local:

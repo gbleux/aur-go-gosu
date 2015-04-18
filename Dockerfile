@@ -4,7 +4,7 @@
 # This image serves as an example of how gosu can be installed using the
 # Archlinux build tools. In this case the image is built using the local
 # sources instead of the version submitted to the AUR.
-FROM base/devel:minimal
+FROM justin8/archlinux:latest
 MAINTAINER Gordon Bleux <gordon.bleux+aurgosu@gmail.com> (@gbleux)
 
 RUN useradd --user-group worker
